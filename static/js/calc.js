@@ -5,6 +5,7 @@ function load() {
     var inputScreen = document.querySelector('#screen');
     var btnValue;
     var input;
+    console.log("Reached");
 
     for (var i = 0; i < btns.length; i++) {
 
@@ -76,3 +77,4 @@ function load() {
         });
     }
 }
+window.onload = load;xdx
