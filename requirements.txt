@@ -5,3 +5,4 @@ Pillow==2.5.1
 flask_cors
 pyopenssl
 gunicorn
+fcntl
