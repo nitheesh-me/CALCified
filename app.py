@@ -25,7 +25,7 @@ import shutil
 
 import random
 import string
-os.makedirs('data/thumbnail',exist_ok=True)
+os.makedirs('/tmp/data/thumbnail',exist_ok=True)
 
 MAJOR_DICT = {}
 
