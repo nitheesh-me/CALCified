@@ -4,3 +4,4 @@ simplejson==3.6.0
 Pillow==2.5.1
 flask_cors
 pyopenssl
+gunicorn
