@@ -25,14 +25,14 @@ import shutil
 
 import random
 import string
-os.makedirs('/tmp/data/thumbnail',exist_ok=True)
+os.makedirs('./data/thumbnail',exist_ok=True)
 
 MAJOR_DICT = {}
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'This is a hardest string to guess'
-app.config['UPLOAD_FOLDER'] = '/tmp/data/'
-app.config['THUMBNAIL_FOLDER'] = '/tmp/data/thumbnail/'
+app.config['UPLOAD_FOLDER'] = './data/'
+app.config['THUMBNAIL_FOLDER'] = './data/thumbnail/'
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024
 
 CORS(app, support_credentials=True)
