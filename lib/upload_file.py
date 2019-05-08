@@ -28,9 +28,9 @@ class uploadfile():
                 return {"name": self.name,
                         "type": self.type,
                         "size": str(self.size), 
-                        "url": 'https://localhost:5000/' + self.url, 
-                        "thumbnailUrl": 'https://localhost:5000/' + self.thumbnail_url,
-                        "deleteUrl": 'https://localhost:5000/' + self.delete_url, 
+                        "url": 'https://calcified.herokuapp.com/' + self.url, 
+                        "thumbnailUrl": 'https://calcified.herokuapp.com/' + self.thumbnail_url,
+                        "deleteUrl": 'https://calcified.herokuapp.com/' + self.delete_url, 
                         "deleteType": self.delete_type,}
 
             # POST an normal file
@@ -38,8 +38,8 @@ class uploadfile():
                 return {"name": self.name,
                         "type": self.type,
                         "size": str(self.size), 
-                        "url": 'https://localhost:5000/' + self.url, 
-                        "deleteUrl": 'https://localhost:5000/' + self.delete_url, 
+                        "url": 'https://calcified.herokuapp.com/' + self.url, 
+                        "deleteUrl": 'https://calcified.herokuapp.com/' + self.delete_url, 
                         "deleteType": self.delete_type,}
 
             # File type is not allowed
@@ -53,15 +53,15 @@ class uploadfile():
         elif self.is_image():
             return {"name": self.name,
                     "size": str(self.size), 
-                    "url": 'https://localhost:5000/' + self.url, 
-                    "thumbnailUrl": 'https://localhost:5000/' + self.thumbnail_url,
-                    "deleteUrl": 'https://localhost:5000/' + self.delete_url, 
+                    "url": 'https://calcified.herokuapp.com/' + self.url, 
+                    "thumbnailUrl": 'https://calcified.herokuapp.com/' + self.thumbnail_url,
+                    "deleteUrl": 'https://calcified.herokuapp.com/' + self.delete_url, 
                     "deleteType": self.delete_type,}
 
         # GET normal file from disk
         else:
             return {"name": self.name,
                     "size": str(self.size), 
-                    "url": 'https://localhost:5000/' + self.url, 
-                    "deleteUrl": 'https://localhost:5000/' + self.delete_url, 
+                    "url": 'https://calcified.herokuapp.com/' + self.url, 
+                    "deleteUrl": 'https://calcified.herokuapp.com/' + self.delete_url, 
                     "deleteType": self.delete_type,}
