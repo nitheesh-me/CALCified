@@ -54,7 +54,7 @@ def allowed_file(filename):
 def gen_random_folder_name(num):
     randomSource = string.ascii_lowercase + string.ascii_uppercase + string.digits
     folder = random.choice(randomSource)
-    for i in range(num):
+    for i in range(num-1):
         folder += random.choice(randomSource)
     while folder in os.listdir("data"):
         folder = gen_random_folder_name(10)
@@ -97,12 +97,12 @@ def create_thumbnail(image,folder):
 def upload():
     if request.method == 'POST':
         files = request.files['file']
-        pprint(vars(request))
-        exp,res = (request.form.get('exp'),request.form.get('res'))
-
-        folder = gen_random_folder_name(10)
-        print(exp,res,folder)
-        MAJOR_DICT[exp+'--'+res] = {'folder':folder,'files':[]}
+        exp,res = (request.args.get('exp'),request.args.get('res'))
+        if exp+'--'+res in MAJOR_DICT:
+            folder = MAJOR_DICT[exp+'--'+res]['folder']
+        else:
+            folder = gen_random_folder_name(10)
+            MAJOR_DICT[exp+'--'+res] = {'folder':folder,'files':[]}
         if files:
             filename = secure_filename(files.filename)
             filename = gen_file_name(filename,folder)
@@ -182,7 +182,7 @@ def find():
     try:
         x = MAJOR_DICT[exp+'--'+res]
     except:
-        x = MAJOR_DICT
+        x = {}
 
     resp = Response(response=simplejson.dumps(x),
         status=200,

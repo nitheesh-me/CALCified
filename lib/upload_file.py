@@ -25,43 +25,43 @@ class uploadfile():
         if self.type != None:
             # POST an image
             if self.type.startswith('image'):
-                return {"name": 'https://localhost:5000/' + self.name,
-                        "type": 'https://localhost:5000/' + self.type,
-                        "size": 'https://localhost:5000/' + str(self.size), 
+                return {"name": self.name,
+                        "type": self.type,
+                        "size": str(self.size), 
                         "url": 'https://localhost:5000/' + self.url, 
                         "thumbnailUrl": 'https://localhost:5000/' + self.thumbnail_url,
                         "deleteUrl": 'https://localhost:5000/' + self.delete_url, 
-                        "deleteType": 'https://localhost:5000/' + self.delete_type,}
+                        "deleteType": self.delete_type,}
 
             # POST an normal file
             elif self.not_allowed_msg == '':
-                return {"name": 'https://localhost:5000/' + self.name,
-                        "type": 'https://localhost:5000/' + self.type,
-                        "size": 'https://localhost:5000/' + str(self.size), 
+                return {"name": self.name,
+                        "type": self.type,
+                        "size": str(self.size), 
                         "url": 'https://localhost:5000/' + self.url, 
                         "deleteUrl": 'https://localhost:5000/' + self.delete_url, 
-                        "deleteType": 'https://localhost:5000/' + self.delete_type,}
+                        "deleteType": self.delete_type,}
 
             # File type is not allowed
             else:
-                return {"error": 'https://localhost:5000/' + self.not_allowed_msg,
-                        "name": 'https://localhost:5000/' + self.name,
-                        "type": 'https://localhost:5000/' + self.type,
-                        "size": 'https://localhost:5000/' + str(self.size),}
+                return {"error": self.not_allowed_msg,
+                        "name": self.name,
+                        "type": self.type,
+                        "size": str(self.size),}
 
         # GET image from disk
         elif self.is_image():
-            return {"name": 'https://localhost:5000/' + self.name,
-                    "size": 'https://localhost:5000/' + str(self.size), 
+            return {"name": self.name,
+                    "size": str(self.size), 
                     "url": 'https://localhost:5000/' + self.url, 
                     "thumbnailUrl": 'https://localhost:5000/' + self.thumbnail_url,
                     "deleteUrl": 'https://localhost:5000/' + self.delete_url, 
-                    "deleteType": 'https://localhost:5000/' + self.delete_type,}
-        
+                    "deleteType": self.delete_type,}
+
         # GET normal file from disk
         else:
-            return {"name": 'https://localhost:5000/' + self.name,
-                    "size": 'https://localhost:5000/' + str(self.size), 
+            return {"name": self.name,
+                    "size": str(self.size), 
                     "url": 'https://localhost:5000/' + self.url, 
                     "deleteUrl": 'https://localhost:5000/' + self.delete_url, 
-                    "deleteType": 'https://localhost:5000/' + self.delete_type,}
+                    "deleteType": self.delete_type,}
