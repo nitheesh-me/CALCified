@@ -1,1 +1,1 @@
-web: gunicorn calcified.wsgi --log-file -
+web: python app.py
